@@ -1,0 +1,11 @@
+{
+  "name": "nodejs_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "source/server.js",
+  "scripts": {
+    "build": "rm -rf build && prettier --write source/ && tsc"
+  },
+  "author": "",
+  "license": "ISC"
+}
