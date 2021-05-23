@@ -10,9 +10,8 @@ const router = express();
 // Loging  the api requst using  middleware
 router.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 
-
-// parse the requst  (parsing the URL-encoded data with the querystring library (when false) or the qs library )
-router.use(bodyParser.urlencoded({ extended: false }))
+// parse the requst  (parsing the URL-encoded data with the querystring library (when false) or the qs library (when true)
+router.use(bodyParser.urlencoded({ extended: false }));
 
 /** Routes go here */
 router.use('/api/stock', stockRoutes);
@@ -26,4 +25,4 @@ router.use((req, res, next) => {
 });
 
 const httpServer = http.createServer(router);
-httpServer.listen(config.server.port, () => morgan(`Server is running ${config.server.hostname}:${config.server.port}`));
+httpServer.listen(config.server.port, () => console.log(`Server is running ${config.server.hostname}:${config.server.port}`));
